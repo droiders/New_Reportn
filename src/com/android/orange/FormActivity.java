@@ -1,18 +1,12 @@
 
 package com.android.orange;
 
-import java.io.IOException;
-import java.util.List;
-import java.util.Locale;
-
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.location.Address;
-import android.location.Geocoder;
-import android.location.LocationManager;
+import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -20,55 +14,32 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.google.android.maps.GeoPoint;
-import com.google.android.maps.MapActivity;
-import com.google.android.maps.MapController;
-import com.google.android.maps.MapView;
-import com.google.android.maps.MyLocationOverlay;
 
-public class FormActivity extends MapActivity {
+
+public class FormActivity extends Activity {
 	static TextView txt;
-	private MapView mapView = null;
+	
 	EditText name, email;
 	takephoto tp;
 	ReportActivity pa;
-	private MapController mc = null;
 	
-	private MyLocationOverlay myLocation = null;
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
 		setContentView(R.layout.form);
-		//txt=(TextView) findViewById(R.id.adress);
-		mapView = (MapView) this.findViewById(R.id.map);
-		
-		mapView.setSatellite(true);
-		double lat = pa.getLatitude();
-		double lng = pa.getLongitude();
-		System.out.println(lat);
-		GeoPoint p = new GeoPoint((int) (lat * 1E6), (int) (lng * 1E6));
-		mc=mapView.getController();
-		mc.animateTo(p);
-		mc.setCenter(p);
-
-		
-	/*myLocation.runOnFirstFix(new Runnable() {
-		    public void run() {
-			mc.animateTo(myLocation.getMyLocation());
-			mc.setZoom(17);
-			handler.sendEmptyMessage(1);
-		    }
-		});*/
+		txt=(TextView) findViewById(R.id.textView2);
+		String adress=pa.getadresse();
+		txt.setText(adress);
+		 ImageView report=(ImageView) findViewById(R.id.pictosend);
 		int i;
 		if ( (i=getIntent().getExtras().getInt("flag"))!=1){
-	    ImageView report=(ImageView) findViewById(R.id.pictosend);
+	   
 		tp=new takephoto();
-		Bitmap bp=tp.getBitmap();
-		report.setImageBitmap(bp);
+		Uri uri=tp.getUri();
+		report.setImageURI(uri);
 		}else{
-			ImageView report=(ImageView) findViewById(R.id.pictosend);
 		   int j=getIntent().getExtras().getInt("id");
 		   ImageAdapter imageAdapter = new ImageAdapter(this);
 	        Bitmap myBitmap = BitmapFactory.decodeFile(imageAdapter.mlistFiles[j].getAbsolutePath());
@@ -212,50 +183,9 @@ public class FormActivity extends MapActivity {
 		age.setText((agePref.equals("0")) ? null : agePref);*/
 	}
 
-	@Override
-	protected boolean isRouteDisplayed() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-	private Handler handler = new Handler() {
+	
 
-  	  public void handleMessage(android.os.Message msg) {
+	
 
-  	  
-  	   if(msg.what == 1) {
-
-  	    Geocoder geoCoder1 = new Geocoder(
-  	      getBaseContext(), Locale.getDefault());
-  	    try {
-
-  	     GeoPoint p1 = new GeoPoint(myLocation.getMyLocation().getLatitudeE6(), myLocation.getMyLocation().getLongitudeE6());
-  	     List<Address> addresses1 = geoCoder1.getFromLocation(
-  	       p1.getLatitudeE6()  / 1E6, 
-  	       p1.getLongitudeE6() / 1E6, 1);
-
-
-  	     String AdresseLocation;
-			if (addresses1.size() > 0) 
-  	     {
-  	      AdresseLocation="";
-  	      for (int i=0; i<3; 
-  	        i++){
-
-  	       AdresseLocation += addresses1.get(0).getAddressLine(i) + "  ";
-  	      }
-  	     }else{AdresseLocation="Adresse Actuelle inconnue";}
-
-  	     txt.setHint(AdresseLocation);
-  	    }
-  	    catch (IOException e) {  
-
-  	     e.printStackTrace();
-  	    } 
-
-
-  	   }
-
-  	  };
-
-  	 };
+	
 }
