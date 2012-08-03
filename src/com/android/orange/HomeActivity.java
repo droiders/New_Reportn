@@ -41,7 +41,7 @@ public class HomeActivity extends DashBoardActivity {
 			break;
 			*/
 		case R.id.main_btn_gingerbread:
-			intent = new Intent(this, ReportActivity.class);
+			intent = new Intent(this, RapportsActivity.class);
 			startActivity(intent);
 			break;
 			
