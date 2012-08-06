@@ -46,7 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/linearLayout1"
         android:layout_marginTop="5dp"
-        android:apiKey="0txfSdKgq1jyXITrT4qEfW_cUOttal92XYm4zBA"
+        android:apiKey="0AOcNg3jtfznTAzqBVVN0ClQywGpJPFVtouDDug"
         android:clickable="true" />
 
 </RelativeLayout>

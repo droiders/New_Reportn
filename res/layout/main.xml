@@ -25,7 +25,13 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="horizontal" >
-
+		<Button
+            android:id="@+id/but7"
+            android:layout_width="55dp"
+            android:layout_height="wrap_content"
+            style="@style/HomeButton"
+            android:background="@null"
+            />
         <Button
             android:id="@+id/main_btn_eclair"
             style="@style/HomeButton"
@@ -34,6 +40,13 @@
             android:drawableTop="@drawable/signaler"       
             android:onClick="onButtonClicker" 
             android:background="@null"/>
+        <Button
+            android:id="@+id/but8"
+            android:layout_width="55dp"
+            android:layout_height="wrap_content"
+            style="@style/HomeButton"
+            android:background="@null"
+            />
     </LinearLayout>
     
 	   <LinearLayout
@@ -41,7 +54,13 @@
         android:layout_height="wrap_content"
         android:layout_weight="0.18"
         android:orientation="horizontal" >
-
+		 <Button
+            android:id="@+id/but1"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            style="@style/HomeButton"
+            android:background="@null"
+            />
         <Button
             android:id="@+id/main_btn_gingerbread"
             style="@style/HomeButton"
@@ -50,23 +69,45 @@
             android:onClick="onButtonClicker" 
             android:background="@null"
             />
+        
+        <Button
+            android:id="@+id/but2"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            style="@style/HomeButton"
+            android:background="@null"
+            />
 
         <Button
             android:id="@+id/main_btn_honeycomb"
             style="@style/HomeButton"
             android:layout_width="108dp"
             android:layout_height="wrap_content"
-            android:drawableTop="@drawable/partage"
+            android:drawableTop="@drawable/partage_vert"
             android:onClick="onButtonClicker"
             android:background="@null"
            />
+        <Button
+            android:id="@+id/but3"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            style="@style/HomeButton"
+            android:background="@null"
+            />
       </LinearLayout>
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.18"
         android:orientation="horizontal" >
-
+        
+        <Button
+            android:id="@+id/but4"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            style="@style/HomeButton"
+            android:background="@null"
+            />
         <Button
             android:id="@+id/main_btn_ics"
             style="@style/HomeButton"
@@ -75,7 +116,13 @@
             android:onClick="onButtonClicker" 
             android:background="@null"
             />
-
+		<Button
+            android:id="@+id/but5"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            style="@style/HomeButton"
+            android:background="@null"
+            />
         <Button
             android:id="@+id/main_btn_jellybean"
             style="@style/HomeButton"
@@ -85,7 +132,13 @@
             android:onClick="onButtonClicker"
             android:background="@null"
            />
-
+		<Button
+            android:id="@+id/but6"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            style="@style/HomeButton"
+            android:background="@null"
+            />
     </LinearLayout>
 
 </LinearLayout>
